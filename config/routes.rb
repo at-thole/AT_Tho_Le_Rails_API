@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      resources :sessions
+      resources :categories
+      resources :articles do
+        get "popular_article" => "articles#popular_article"
+        resources :comments
+      end
+      resources :contacts
+    end
+  end
 end

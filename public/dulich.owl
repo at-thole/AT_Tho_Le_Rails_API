@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY untitled-ontology-44 "http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#"
+     xml:base="http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:untitled-ontology-44="http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Thuoc -->
+
+    <owl:ObjectProperty rdf:about="&untitled-ontology-44;Thuoc">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <rdfs:range rdf:resource="&untitled-ontology-44;TinhThanh"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Dia_Chi_Dia_Diem -->
+
+    <owl:DatatypeProperty rdf:about="&untitled-ontology-44;Dia_Chi_Dia_Diem">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Huyen -->
+
+    <owl:DatatypeProperty rdf:about="&untitled-ontology-44;Huyen">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;TinhThanh"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Mo_Ta_Dia_Diem -->
+
+    <owl:DatatypeProperty rdf:about="&untitled-ontology-44;Mo_Ta_Dia_Diem">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Quan -->
+
+    <owl:DatatypeProperty rdf:about="&untitled-ontology-44;Quan">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;TinhThanh"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Ten_Dia_Diem -->
+
+    <owl:DatatypeProperty rdf:about="&untitled-ontology-44;Ten_Dia_Diem">
+        <rdfs:domain rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#DiaDiem -->
+
+    <owl:Class rdf:about="&untitled-ontology-44;DiaDiem"/>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#TinhThanh -->
+
+    <owl:Class rdf:about="&untitled-ontology-44;TinhThanh"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Cầu_Rồng -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;Cầu_Rồng">
+        <rdf:type rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <Ten_Dia_Diem rdf:datatype="&xsd;string">Cầu Rồng</Ten_Dia_Diem>
+        <Mo_Ta_Dia_Diem rdf:datatype="&xsd;string">Cầu có con rồng</Mo_Ta_Dia_Diem>
+        <Dia_Chi_Dia_Diem rdf:datatype="&xsd;string">abc 123</Dia_Chi_Dia_Diem>
+        <Thuoc rdf:resource="&untitled-ontology-44;DaNang"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Cầu_Trần_Thị_Lý -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;Cầu_Trần_Thị_Lý">
+        <rdf:type rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <Ten_Dia_Diem rdf:datatype="&xsd;string">Cầu Trần Thị Lý</Ten_Dia_Diem>
+        <Dia_Chi_Dia_Diem rdf:datatype="&xsd;string">ád123</Dia_Chi_Dia_Diem>
+        <Mo_Ta_Dia_Diem rdf:datatype="&xsd;string">ádasdasdasd</Mo_Ta_Dia_Diem>
+        <Thuoc rdf:resource="&untitled-ontology-44;HCM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#Cầu_sông_Hàn -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;Cầu_sông_Hàn">
+        <rdf:type rdf:resource="&untitled-ontology-44;DiaDiem"/>
+        <Dia_Chi_Dia_Diem rdf:datatype="&xsd;string">123 abc</Dia_Chi_Dia_Diem>
+        <Mo_Ta_Dia_Diem rdf:datatype="&xsd;string">Cầu có đỉnh pháo bông</Mo_Ta_Dia_Diem>
+        <Ten_Dia_Diem rdf:datatype="&xsd;string">Cầu sông Hàn</Ten_Dia_Diem>
+        <Thuoc rdf:resource="&untitled-ontology-44;QuangNam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#DaNang -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;DaNang">
+        <rdf:type rdf:resource="&untitled-ontology-44;TinhThanh"/>
+        <Quan rdf:datatype="&xsd;string">Thanh Khê</Quan>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#HCM -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;HCM">
+        <rdf:type rdf:resource="&untitled-ontology-44;TinhThanh"/>
+        <Quan rdf:datatype="&xsd;string">Tân Bình</Quan>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/tho/ontologies/2017/4/untitled-ontology-44#QuangNam -->
+
+    <owl:NamedIndividual rdf:about="&untitled-ontology-44;QuangNam">
+        <rdf:type rdf:resource="&untitled-ontology-44;TinhThanh"/>
+        <Huyen rdf:datatype="&xsd;string">Phước Sơn</Huyen>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

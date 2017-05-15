@@ -8,4 +8,6 @@ class User < ApplicationRecord
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "Email not validated"}
   validates_numericality_of :phone, greater_than_or_equal_to: 0
   validates :address, presence: true
+
+  has_secure_password
 end
