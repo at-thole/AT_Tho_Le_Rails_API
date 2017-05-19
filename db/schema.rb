@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510022244) do
+ActiveRecord::Schema.define(version: 20170512072152) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -81,12 +81,15 @@ ActiveRecord::Schema.define(version: 20170510022244) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username"
     t.string   "email"
+    t.string   "password_digest"
     t.integer  "phone"
     t.string   "address"
     t.string   "avatar"
-    t.integer  "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "role",            default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "auth_token"
+    t.index ["auth_token"], name: "index_users_on_auth_token", using: :btree
   end
 
   add_foreign_key "articles", "users"
