@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :articles do
         get "popular_article" => "articles#popular_article"
         resources :comments
+        resources :favorites
       end
       resources :contacts
     end
