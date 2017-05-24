@@ -1,6 +1,6 @@
 class Api::V1::ContactsController < ApplicationController
   def create
-    contact = Contact.create! contact_params
+    contact = Contact.create contact_params
     if contact
       success = {success: {message: "Thanks for contact", status: 200}}
       render json: success

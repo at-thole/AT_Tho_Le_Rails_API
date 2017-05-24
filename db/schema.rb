@@ -14,15 +14,19 @@ ActiveRecord::Schema.define(version: 20170512072152) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.string   "content"
+    t.string   "description"
+    t.text     "content",     limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.string   "slug"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
   create_table "categories_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "category_id"
     t.integer  "article_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["article_id"], name: "index_categories_articles_on_article_id", using: :btree
@@ -40,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
     t.string   "content"
     t.integer  "user_id"
     t.integer  "article_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
@@ -50,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
     t.string   "username"
     t.string   "email"
     t.string   "content"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "article_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_favorites_on_article_id", using: :btree
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "picture"
     t.integer  "article_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_images_on_article_id", using: :btree
@@ -74,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
+    t.datetime "deleted_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -86,6 +96,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
     t.string   "address"
     t.string   "avatar"
     t.integer  "role",            default: 0
+    t.datetime "deleted_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "auth_token"

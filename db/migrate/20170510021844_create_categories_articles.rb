@@ -3,6 +3,7 @@ class CreateCategoriesArticles < ActiveRecord::Migration[5.0]
     create_table :categories_articles do |t|
       t.references :category, foreign_key: true
       t.references :article, foreign_key: true
+      t.datetime :deleted_at
 
       t.timestamps
     end

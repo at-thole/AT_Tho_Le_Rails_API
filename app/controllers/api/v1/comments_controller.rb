@@ -1,5 +1,7 @@
 module Api::V1
   class CommentsController < BaseController
+    before_action :get_comment, only: [:update, :destroy]
+
     def index
       article = Article.find_by id: params[:article_id]
       comments = article.comments
@@ -7,29 +9,30 @@ module Api::V1
     end
 
     def create
-      comment = Comment.create! content: params[:comment][:content],
-        user_id: params[:user_id], article_id: params[:article_id]
+      comment = current_user.comments.build comment_params
+      comment.save
       render json: comment, serializer: Comments::ShowCommentSerializer
     end
 
     def update
-      comment = Comment.find_by id: params[:comment][:id]
-      if comment
-        comment.update_attributes content: params[:comment][:content]
-        render json: comment, serializer: Comments::ShowCommentSerializer
-      else
-        error = {error: {message: "Comment not found", status: 404}}
-        render json: error
-      end
+      @comment.update_attributes comment_params
+      render json: @comment, serializer: Comments::ShowCommentSerializer
     end
 
     def destroy
-      comment = Comment.find_by id: params[:id]
-      if comment
-        comment.destroy
-        success = {success: {message: "Delete successful", status: 200}}
-        render json: success
-      else
+      @comment.destroy
+      success = {success: {message: "Delete successful", status: 200}}
+      render json: success
+    end
+
+    private
+    def comment_params
+      params.require(:comment).permit :content, :article_id
+    end
+
+    def get_comment
+      @comment = Comment.find_by id: params[:comment][:id]
+      unless @comment
         error = {error: {message: "Comment not found", status: 404}}
         render json: error
       end

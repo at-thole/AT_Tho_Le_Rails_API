@@ -1,15 +1,18 @@
 module Api::V1
-  class UsersController < BaseController
+  class UsersController < ApplicationController
     before_action :user_params, only: :create
 
     def create
-      user = User.create user_params
-      if user
+      user = User.new user_params
+      if user.valid?
+        user.save
         render json: user, meta: {message: "Signup succesful", status: 200},
           serializer: Users::ShowUserSerializer
       else
-        render status: 400
+        error = {error: [user.errors.messages]}
+        render json: error
       end
+
     end
 
     private
