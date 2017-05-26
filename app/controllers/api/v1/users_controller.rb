@@ -9,10 +9,14 @@ module Api::V1
         render json: user, meta: {message: "Signup succesful", status: 200},
           serializer: Users::ShowUserSerializer
       else
-        error = {error: [user.errors.messages]}
+        error = {error: user.errors.messages, status: 201}
         render json: error
       end
+    end
 
+    def show
+      user = User.friendly.find params[:id]
+      render json: user, serializer: Users::ShowUserSerializer
     end
 
     private

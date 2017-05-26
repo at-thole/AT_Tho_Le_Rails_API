@@ -3,7 +3,8 @@ module Api::V1
     before_action :get_article, only: [:update, :destroy]
 
     def index
-      articles = Article.all.includes :images, :user
+      articles = Article.all.includes :images, :user, :comments, :favorites,
+        :categories
       render json: articles, each_serializer: Articles::ArticlesSerializer
     end
 
@@ -17,6 +18,14 @@ module Api::V1
         article = current_user.articles.build article_params
         article.save
         Image.create! article_id: article.id, picture: params[:article][:picture]
+        tags = params[:article][:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
+        tags.each do |tag|
+          Tag.find_or_create_by name: tag
+        end
+        tag_ids = Tag.select(:id).where name: tags
+        tag_ids.each do |tag_id|
+          TagsArticle.create! article_id: article.id, tag_id: tag_id.id
+        end
         render json: article
       end
       rescue
@@ -33,9 +42,6 @@ module Api::V1
       @article.destroy
       success = {success: {message: "Delete successful", status: 200}}
       render json: success
-    end
-
-    def popular_article
     end
 
     private
