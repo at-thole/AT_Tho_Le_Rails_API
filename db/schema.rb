@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512072152) do
+ActiveRecord::Schema.define(version: 20170526025118) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -88,6 +88,23 @@ ActiveRecord::Schema.define(version: 20170512072152) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags_articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tag_id"
+    t.integer  "article_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_tags_articles_on_article_id", using: :btree
+    t.index ["tag_id"], name: "index_tags_articles_on_tag_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username"
     t.string   "email"
@@ -95,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170512072152) do
     t.integer  "phone"
     t.string   "address"
     t.string   "avatar"
+    t.string   "slug"
     t.integer  "role",            default: 0
     t.datetime "deleted_at"
     t.datetime "created_at",                  null: false
@@ -111,4 +129,6 @@ ActiveRecord::Schema.define(version: 20170512072152) do
   add_foreign_key "favorites", "articles"
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "articles"
+  add_foreign_key "tags_articles", "articles"
+  add_foreign_key "tags_articles", "tags"
 end

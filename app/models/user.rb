@@ -9,6 +9,7 @@
 #  phone           :integer
 #  address         :string(255)
 #  avatar          :string(255)
+#  slug            :string(255)
 #  role            :integer          default("user")
 #  deleted_at      :datetime
 #  created_at      :datetime         not null
@@ -23,9 +24,12 @@
 class User < ApplicationRecord
   enum role: [:user, :admin]
 
-  has_many :comments
-  has_many :favorites
-  has_many :articles
+  extend FriendlyId
+  friendly_id :username, use: [:slugged]
+
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :articles, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
@@ -36,12 +40,15 @@ class User < ApplicationRecord
   validates :username, presence: true, length: {in: 2..50}
   validates :email, presence: true, uniqueness: {case_sensitive: false},
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "Email not validated"}
-  validates_numericality_of :phone, greater_than_or_equal_to: 0
-  validates :address, presence: true
+  # validates_numericality_of :phone, greater_than_or_equal_to: 0
 
   has_secure_password
 
   mount_uploader :avatar, PictureUploader
 
   acts_as_paranoid column: :deleted_at
+
+  def avatar_url
+    avatar.url
+  end
 end

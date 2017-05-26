@@ -1,6 +1,7 @@
 class Articles::ShowArticleSerializer < ActiveModel::Serializer
   attributes :id, :title, :content, :slug, :is_like, :sum_like
   has_many :comments, serializer: Comments::ShowCommentSerializer
+  has_many :tags, through: :tags_articles, serializer: Tags::ShowTagSerializer
 
   def is_like
     if current_user

@@ -6,14 +6,20 @@ class Api::V1::CategoriesController < BaseController
     render json: {categories: categories}
   end
 
+  def show
+    category = Category.find_by id: params[:id]
+    articles = category.articles
+    render json: {articles: articles}
+  end
+
   def create
     category = Category.create! name: params[:category][:name]
-    render json: category
+    render json: {category: category}
   end
 
   def update
     @category.update_columns name: params[:category][:name]
-    render json: @category
+    render json: {category: @category}
   end
 
   def destroy
@@ -24,6 +30,6 @@ class Api::V1::CategoriesController < BaseController
 
   private
   def get_category
-    @category = Category.find_by id: params[:category][:id]
+    @category = Category.find_by id: params[:id]
   end
 end
