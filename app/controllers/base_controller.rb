@@ -7,5 +7,9 @@ class BaseController < ApplicationController
 
   def loged_in?
     current_user.present?
+    if current_user.blank?
+      message = {message: "Please login"}
+      render json: message
+    end
   end
 end

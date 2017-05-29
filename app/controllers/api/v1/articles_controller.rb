@@ -16,16 +16,14 @@ module Api::V1
     def create
       ActiveRecord::Base.transaction do
         article = current_user.articles.build article_params
+        article.images.build picture: params[:article][:picture]
         article.save
-        Image.create! article_id: article.id, picture: params[:article][:picture]
         tags = params[:article][:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
         tags.each do |tag|
           Tag.find_or_create_by name: tag
         end
         tag_ids = Tag.select(:id).where name: tags
-        tag_ids.each do |tag_id|
-          TagsArticle.create! article_id: article.id, tag_id: tag_id.id
-        end
+        article.tags_articles.create! tag_ids.map{|tag_id| {tag_id: tag_id.id}}
         render json: article
       end
       rescue

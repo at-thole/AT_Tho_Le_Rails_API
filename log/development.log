@@ -22202,3 +22202,70 @@ Unpermitted parameters: user_id, tag, picture
 Completed 200 OK in 140ms (Views: 1.1ms | ActiveRecord: 103.4ms)
 
 
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-26 17:45:13 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x005626561b1f70 @tempfile=#<Tempfile:/tmp/RackMultipart20170526-8205-z5pizc.png>, @original_filename="Screenshot from 2017-05-25 20:54:33.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"Screenshot from 2017-05-25 20:54:33.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: user_id, tag, picture
+  [1m[36mArticle Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', 'qweqwe', 1, 'asdasd-88d5dd0a-2e57-4823-b6d9-1210fbeec272', '2017-05-26 10:45:14', '2017-05-26 10:45:14')[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('Screenshot_from_2017-05-25_20_54_33.png', 9, '2017-05-26 10:45:14', '2017-05-26 10:45:14')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (10, 9, '2017-05-26 10:45:14', '2017-05-26 10:45:14')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (11, 9, '2017-05-26 10:45:14', '2017-05-26 10:45:14')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (12, 9, '2017-05-26 10:45:14', '2017-05-26 10:45:14')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.42ms)
+  [1m[35m (107.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 696ms (Views: 5.3ms | ActiveRecord: 114.3ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-26 17:45:21 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f9300062418 @tempfile=#<Tempfile:/tmp/RackMultipart20170526-8205-ivs4bn.png>, @original_filename="Screenshot from 2017-05-18 01:58:05.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"Screenshot from 2017-05-18 01:58:05.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: user_id, tag, picture
+  [1m[36mArticle Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', 'qweqwe', 1, 'asdasd-8a551585-d3cb-4387-bdfe-d7cb78eec15c', '2017-05-26 10:45:21', '2017-05-26 10:45:21')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('Screenshot_from_2017-05-18_01_58_05.png', 10, '2017-05-26 10:45:21', '2017-05-26 10:45:21')[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (10, 10, '2017-05-26 10:45:21', '2017-05-26 10:45:21')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (11, 10, '2017-05-26 10:45:21', '2017-05-26 10:45:21')[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (12, 10, '2017-05-26 10:45:21', '2017-05-26 10:45:21')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.59ms)
+  [1m[35m (81.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 130ms (Views: 1.4ms | ActiveRecord: 84.6ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-26 17:53:37 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f92f81a9040 @tempfile=#<Tempfile:/tmp/RackMultipart20170526-8205-1amewtp.png>, @original_filename="Screenshot from 2017-05-18 01:58:05.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"Screenshot from 2017-05-18 01:58:05.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Unpermitted parameters: user_id, tag, picture
+  [1m[36mArticle Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', 'qweqwe', 1, 'asdasd-82ef4a67-91e7-42a7-8f6c-c680f36b7841', '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('Screenshot_from_2017-05-18_01_58_05.png', 11, '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('tag1', '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('tag2', '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('tag3', '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 11, '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 11, '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 11, '2017-05-26 10:53:37', '2017-05-26 10:53:37')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.45ms)
+  [1m[35m (52.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 175ms (Views: 4.5ms | ActiveRecord: 60.8ms)
+
+
