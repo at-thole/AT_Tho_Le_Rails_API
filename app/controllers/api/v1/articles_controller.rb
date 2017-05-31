@@ -5,20 +5,20 @@ module Api::V1
     def index
       articles = Article.all.includes :images, :user, :comments, :favorites,
         :categories
-      render json: articles, each_serializer: Articles::ArticlesSerializer
+      render json: articles, each_serializer: ::Articles::ArticlesSerializer
     end
 
     def show
       article = Article.friendly.find params[:id]
-      render json: article, serializer: Articles::ShowArticleSerializer
+      render json: article, serializer: ::Articles::ShowArticleSerializer
     end
 
     def create
       ActiveRecord::Base.transaction do
-        article = current_user.articles.build article_params
-        article.images.build picture: params[:article][:picture]
+        article = current_user.articles.build title: params[:title], description: params[:description], content: params[:content]
+        article.images.build picture: params[:picture]
         article.save
-        tags = params[:article][:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
+        tags = params[:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
         tags.each do |tag|
           Tag.find_or_create_by name: tag
         end
@@ -43,9 +43,6 @@ module Api::V1
     end
 
     private
-    def article_params
-      params.require(:article).permit(:title, :description, :content)
-    end
 
     def get_article
       @article = Article.find_by id: params[:article][:id]

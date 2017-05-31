@@ -22269,3 +22269,575 @@ Unpermitted parameters: user_id, tag, picture
 Completed 200 OK in 175ms (Views: 4.5ms | ActiveRecord: 60.8ms)
 
 
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:22:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x00557218dc3180 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-1da9k32.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 965ms (Views: 16.4ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:22:17 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bcb813a0 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-11ebnds.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 22727ms (Views: 3.6ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:22:41 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"article"=>{"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bd271fe8 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-nsyw9k.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[picture]\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 70459ms (Views: 3.1ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:23:54 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x00557219efae80 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-4ai0pd.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 91415ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:25:28 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bd568120 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-36tfu.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 100ms (Views: 4.8ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:26:03 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bc599a28 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-1ml9e0p.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 67ms (Views: 2.6ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:27:50 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "user_id"=>"1", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bd443150 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-7upzfy.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', 'qweqwe', 1, 'asdasd-319a08e1-c115-486a-bf5a-3ea9bedf56e3', '2017-05-29 03:27:50', '2017-05-29 03:27:50')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('V__n-qu_c-gia-B_-Gia-M_p-2.jpg', 12, '2017-05-29 03:27:50', '2017-05-29 03:27:50')[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 12, '2017-05-29 03:27:58', '2017-05-29 03:27:58')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 12, '2017-05-29 03:27:58', '2017-05-29 03:27:58')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 12, '2017-05-29 03:27:58', '2017-05-29 03:27:58')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.5ms)
+  [1m[35m (53.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8526ms (Views: 17.1ms | ActiveRecord: 61.8ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:29:48 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"qweqwe", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bce78b30 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-16tdhih.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', 'qweqwe', 1, 'asdasd-09d6e8de-16c4-4ae2-9f17-d9909b7b745a', '2017-05-29 03:29:48', '2017-05-29 03:29:48')[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('V__n-qu_c-gia-B_-Gia-M_p-2.jpg', 13, '2017-05-29 03:29:48', '2017-05-29 03:29:48')[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 13, '2017-05-29 03:29:51', '2017-05-29 03:29:51')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 13, '2017-05-29 03:29:51', '2017-05-29 03:29:51')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 13, '2017-05-29 03:29:51', '2017-05-29 03:29:51')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.49ms)
+  [1m[35m (58.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 2852ms (Views: 1.1ms | ActiveRecord: 61.4ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:34:57 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bd2219d0 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-parhc6.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-9facbd6d-4e3d-4806-aa0d-5314250cef76', '2017-05-29 03:34:57', '2017-05-29 03:34:57')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('V__n-qu_c-gia-B_-Gia-M_p-2.jpg', 14, '2017-05-29 03:34:57', '2017-05-29 03:34:57')[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 14, '2017-05-29 03:34:57', '2017-05-29 03:34:57')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 14, '2017-05-29 03:34:57', '2017-05-29 03:34:57')[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 14, '2017-05-29 03:34:57', '2017-05-29 03:34:57')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.38ms)
+  [1m[35m (44.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 172ms (Views: 13.2ms | ActiveRecord: 52.5ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:40:09 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bd61f488 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-13f5arp.jpg>, @original_filename="Vườn-quốc-gia-Bù-Gia-Mập-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"V\xC6\xB0\xE1\xBB\x9Dn-qu\xE1\xBB\x91c-gia-B\xC3\xB9-Gia-M\xE1\xBA\xADp-2.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-17677fc0-7158-4eff-894b-1dcad1a9951b', '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('V__n-qu_c-gia-B_-Gia-M_p-2.jpg', 15, '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('V__n-qu_c-gia-B_-Gia-M_p-2.jpg', 15, '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 15, '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 15, '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 15, '2017-05-29 03:41:01', '2017-05-29 03:41:01')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.82ms)
+  [1m[35m (53.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 51736ms (Views: 7.8ms | ActiveRecord: 62.7ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 10:41:12 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bcf06a48 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-1774gzz.jpg>, @original_filename="thanh-co-xuong-giang-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"thanh-co-xuong-giang-3.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-4ad12e15-25c2-40f8-a60e-92cd3b1b5812', '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('thanh-co-xuong-giang-3.jpg', 16, '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('thanh-co-xuong-giang-3.jpg', 16, '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 16, '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 16, '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 16, '2017-05-29 03:41:48', '2017-05-29 03:41:48')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.33ms)
+  [1m[35m (53.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 36419ms (Views: 0.9ms | ActiveRecord: 56.1ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 11:01:59 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20bcfa4428 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-12fqj77.jpg>, @original_filename="thanh-co-xuong-giang-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"thanh-co-xuong-giang-3.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `created_at`, `updated_at`) VALUES ('thanh-co-xuong-giang-3.jpg', '2017-05-29 04:02:06', '2017-05-29 04:02:06')[0m
+  [1m[36mArticle Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-7a052167-e53c-4f23-a7e9-25592b5bf0c5', '2017-05-29 04:02:06', '2017-05-29 04:02:06')[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 17, '2017-05-29 04:02:06', '2017-05-29 04:02:06')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 17, '2017-05-29 04:02:06', '2017-05-29 04:02:06')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 17, '2017-05-29 04:02:06', '2017-05-29 04:02:06')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.55ms)
+  [1m[35m (51.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6537ms (Views: 9.0ms | ActiveRecord: 58.8ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 11:02:31 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x0055721786ae78 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-1bfked3.jpg>, @original_filename="thanh-co-xuong-giang-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"thanh-co-xuong-giang-3.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-7e17f4f7-a73d-4a56-a31a-3d46c9ab1db0', '2017-05-29 04:02:32', '2017-05-29 04:02:32')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('thanh-co-xuong-giang-3.jpg', 18, '2017-05-29 04:02:32', '2017-05-29 04:02:32')[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 18, '2017-05-29 04:02:32', '2017-05-29 04:02:32')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 18, '2017-05-29 04:02:32', '2017-05-29 04:02:32')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 18, '2017-05-29 04:02:32', '2017-05-29 04:02:32')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.41ms)
+  [1m[35m (51.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 1245ms (Views: 5.2ms | ActiveRecord: 59.7ms)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2017-05-29 11:02:52 +0700
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007f20c4d0b4e8 @tempfile=#<Tempfile:/tmp/RackMultipart20170529-8855-s79s06.jpg>, @original_filename="thanh-co-xuong-giang-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"thanh-co-xuong-giang-3.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `articles` WHERE (`articles`.`id` IS NOT NULL) AND `articles`.`slug` = 'asdasd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `description`, `content`, `user_id`, `slug`, `created_at`, `updated_at`) VALUES ('asdasd', 'qweqwe', '<p>qweqwe</p>', 1, 'asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a', '2017-05-29 04:02:52', '2017-05-29 04:02:52')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `images` (`picture`, `article_id`, `created_at`, `updated_at`) VALUES ('thanh-co-xuong-giang-3.jpg', 19, '2017-05-29 04:02:52', '2017-05-29 04:02:52')[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag1' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag2' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` = 'tag3' LIMIT 1[0m
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.`id` FROM `tags` WHERE `tags`.`deleted_at` IS NULL AND `tags`.`name` IN ('tag1', 'tag2', 'tag3')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (13, 19, '2017-05-29 04:02:52', '2017-05-29 04:02:52')[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (14, 19, '2017-05-29 04:02:52', '2017-05-29 04:02:52')[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `tags_articles` (`tag_id`, `article_id`, `created_at`, `updated_at`) VALUES (15, 19, '2017-05-29 04:02:52', '2017-05-29 04:02:52')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.32ms)
+  [1m[35m (42.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 147ms (Views: 3.8ms | ActiveRecord: 48.6ms)
+
+
+Started GET "/api/v1/popular_articles" for 127.0.0.1 at 2017-05-29 12:01:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::Articles::ArticleHelpersController#popular_articles as */*
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `favorites`.`article_id` AS favorites_article_id FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL GROUP BY `favorites`.`article_id`[0m
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` IN (1, 2, 3)[0m
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 2[0m
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 3[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (56.29ms)
+Completed 200 OK in 249ms (Views: 87.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2017-05-29 12:01:35 +0700
+Processing by Api::V1::ArticlesController#index as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Api::V1::Articles::ArticlesSerializer):
+  
+app/controllers/api/v1/articles_controller.rb:8:in `index'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2017-05-29 12:02:04 +0700
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL[0m
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)[0m
+  [1m[36mFavorite Load (0.3ms)[0m  [1m[34mSELECT `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)[0m
+  [1m[36mCategoriesArticle Load (0.3ms)[0m  [1m[34mSELECT `categories_articles`.* FROM `categories_articles` WHERE `categories_articles`.`deleted_at` IS NULL AND `categories_articles`.`article_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (91.05ms)
+Completed 200 OK in 500ms (Views: 379.0ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/api/v1/popular_articles" for 127.0.0.1 at 2017-05-29 12:03:15 +0700
+Processing by Api::V1::Articles::ArticleHelpersController#popular_articles as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `favorites`.`article_id` AS favorites_article_id FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL GROUP BY `favorites`.`article_id`[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` IN (1, 2, 3)[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 2[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 3[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (10.24ms)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/popular_articles" for 127.0.0.1 at 2017-05-29 12:04:59 +0700
+Processing by Api::V1::Articles::ArticleHelpersController#popular_articles as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `favorites`.`article_id` AS favorites_article_id FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL GROUP BY `favorites`.`article_id`[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` IN (1, 2, 3)[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 2[0m
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 3[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (13.19ms)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/popular_articles/1" for 127.0.0.1 at 2017-05-29 12:05:17 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/popular_articles/1"):
+  
+actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.1) lib/rack/cors.rb:81:in `call'
+railties (5.0.3) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-29 12:05:27 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (uninitialized constant Api::V1::Articles::ShowArticleSerializer):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 13:45:55 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 2.2ms)
+
+
+  
+NameError (uninitialized constant Api::V1::Articles::ShowArticleSerializer):
+  
+app/controllers/api/v1/articles_controller.rb:13:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 13:46:25 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (147.98ms)
+Completed 200 OK in 724ms (Views: 385.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 13:46:46 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (1.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (111.94ms)
+Completed 200 OK in 120ms (Views: 111.9ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 13:50:31 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (19.31ms)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 14:00:39 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (73.49ms)
+Completed 200 OK in 134ms (Views: 96.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 14:00:49 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (44.67ms)
+Completed 200 OK in 161ms (Views: 90.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 14:00:54 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (69.54ms)
+Completed 200 OK in 139ms (Views: 99.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 14:01:50 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (43.33ms)
+Completed 200 OK in 92ms (Views: 63.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 14:05:21 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (79.06ms)
+Completed 200 OK in 135ms (Views: 100.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2017-05-31 14:05:30 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '19' LIMIT 1[0m
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 19 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 19[0m
+[active_model_serializers] No serializer found for resource: #<Image id: 17, picture: "thanh-co-xuong-giang-3.jpg", article_id: 19, deleted_at: nil, created_at: "2017-05-29 04:02:52", updated_at: "2017-05-29 04:02:52">
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (55.34ms)
+Completed 200 OK in 62ms (Views: 55.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2017-05-31 14:05:49 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '19' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 19 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (45.64ms)
+Completed 200 OK in 97ms (Views: 67.7ms | ActiveRecord: 5.1ms)
+
+
+Started PUT "/api/v1/articles/asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a" for 127.0.0.1 at 2017-05-31 14:33:39 +0700
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"title"=>"asdasd", "description"=>"qweqwe", "content"=>"<p>qweqwe</p>", "tag"=>"!@\#$%^&*tag1, tag2[], tag3;:'|", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007fc6b8521a58 @tempfile=#<Tempfile:/tmp/RackMultipart20170531-4602-18nld52.jpg>, @original_filename="thanh-co-xuong-giang-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"picture\"; filename=\"thanh-co-xuong-giang-3.jpg\"\r\nContent-Type: image/jpeg\r\n">, "id"=>"asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/articles_controller.rb:48:in `get_article'
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2017-05-31 14:34:04 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '19' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 19 LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (19.69ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/articles/asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a" for 127.0.0.1 at 2017-05-31 14:34:14 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = 'asdasd-d0119ab8-33c6-4ef1-8caf-857dfe04a11a' LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 19[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (20.0ms)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2017-05-31 15:54:42 +0700
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`slug` = '1' LIMIT 1[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  `articles`.* FROM `articles` WHERE `articles`.`deleted_at` IS NULL AND `articles`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`auth_token` = 'c756e27a6282a890a80bebf43ed1979c' LIMIT 1[0m
+[active_model_serializers]   [1m[36mFavorite Load (0.2ms)[0m  [1m[34mSELECT  `favorites`.* FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1 AND `favorites`.`user_id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(`favorites`.`id`) FROM `favorites` WHERE `favorites`.`deleted_at` IS NULL AND `favorites`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`deleted_at` IS NULL AND `comments`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tags_articles` ON `tags`.`id` = `tags_articles`.`tag_id` WHERE `tags`.`deleted_at` IS NULL AND `tags_articles`.`deleted_at` IS NULL AND `tags_articles`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT `images`.* FROM `images` WHERE `images`.`deleted_at` IS NULL AND `images`.`article_id` = 1[0m
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`deleted_at` IS NULL AND `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered Articles::ShowArticleSerializer with ActiveModelSerializers::Adapter::Json (51.06ms)
+Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 2.6ms)
+
+
