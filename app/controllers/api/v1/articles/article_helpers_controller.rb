@@ -1,6 +1,6 @@
 class Api::V1::Articles::ArticleHelpersController < ApplicationController
   def popular_articles
-    popular_articles = Article.where id: Favorite.group(:article_id).count.keys.slice(0..2)
+    popular_articles = Article.joins(:favorites).select("count(articles.id) as count_order, articles.*").group(:article_id).order("count_order desc")
     render json: popular_articles, each_serializer: ::Articles::PopularArticlesSerializer
   end
 
@@ -10,3 +10,4 @@ class Api::V1::Articles::ArticleHelpersController < ApplicationController
     render json: articles, each_serializer: ::Articles::ArticlesSerializer
   end
 end
+# Article.joins(:favorites).select("count(articles.id) as count_order, articles.*").group(:article_id).order("count_order desc")

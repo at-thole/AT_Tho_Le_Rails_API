@@ -22,6 +22,7 @@ gem "paranoia"
 gem "friendly_id"
 
 group :development, :test do
+  gem "config"
   gem "byebug", platform: :mri
   gem "shoulda-matchers", "~> 3.1"
   gem "factory_girl_rails"

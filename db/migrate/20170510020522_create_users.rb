@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :phone
       t.string :address
       t.string :avatar
+      t.text :about_me
       t.string :slug
       t.integer :role,default: 0
       t.datetime :deleted_at

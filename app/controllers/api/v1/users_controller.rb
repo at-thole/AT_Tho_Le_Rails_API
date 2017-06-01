@@ -16,7 +16,12 @@ module Api::V1
 
     def show
       user = User.friendly.find params[:id]
-      render json: user, serializer: Users::ShowUserSerializer
+      if user
+        render json: user, serializer: Users::ShowUserSerializer
+      else
+        error = {error: {message: "User not found", status: 404}}
+        render json: error
+      end
     end
 
     private
