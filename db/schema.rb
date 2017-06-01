@@ -112,11 +112,12 @@ ActiveRecord::Schema.define(version: 20170526025118) do
     t.integer  "phone"
     t.string   "address"
     t.string   "avatar"
+    t.text     "about_me",        limit: 65535
     t.string   "slug"
-    t.integer  "role",            default: 0
+    t.integer  "role",                          default: 0
     t.datetime "deleted_at"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "auth_token"
     t.index ["auth_token"], name: "index_users_on_auth_token", using: :btree
   end

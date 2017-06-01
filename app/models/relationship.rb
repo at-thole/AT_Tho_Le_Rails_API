@@ -13,4 +13,6 @@
 class Relationship < ApplicationRecord
   belongs_to :follower, class_name: User.name
   belongs_to :followed, class_name: User.name
+
+  acts_as_paranoid column: :deleted_at
 end

@@ -9,13 +9,14 @@ module Api::V1
     end
 
     def create
-      comment = current_user.comments.build comment_params
+      comment = current_user.comments.build content: params[:comment][:content],
+        article_id: params[:article_id]
       comment.save
       render json: comment, serializer: Comments::ShowCommentSerializer
     end
 
     def update
-      @comment.update_attributes comment_params
+      @comment.update_attributes content: params[:comment][:content]
       render json: @comment, serializer: Comments::ShowCommentSerializer
     end
 
@@ -26,12 +27,8 @@ module Api::V1
     end
 
     private
-    def comment_params
-      params.require(:comment).permit :content, :article_id
-    end
-
     def get_comment
-      @comment = Comment.find_by id: params[:comment][:id]
+      @comment = Comment.find_by id: params[:id]
       unless @comment
         error = {error: {message: "Comment not found", status: 404}}
         render json: error

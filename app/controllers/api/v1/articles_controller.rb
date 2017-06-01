@@ -10,7 +10,12 @@ module Api::V1
 
     def show
       article = Article.friendly.find params[:id]
-      render json: article, serializer: ::Articles::ShowArticleSerializer
+      if article
+        render json: article, serializer: ::Articles::ShowArticleSerializer
+      else
+        error = {error: {message: "Article not found", status: 404}}
+        render json: error
+      end
     end
 
     def create

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         member do
           get "articles_by_user" => "articles/article_helpers#articles_by_user"
         end
+        resources :relationships, only: [:create, :destroy]
       end
       resources :sessions
       resources :categories

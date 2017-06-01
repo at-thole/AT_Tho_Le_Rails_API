@@ -15,4 +15,8 @@ class Articles::ShowArticleSerializer < ActiveModel::Serializer
   def sum_like
     Favorite.where(article_id: object.id).count(:id)
   end
+
+  def comments
+    object.comments.order(id: :desc).limit(5)
+  end
 end

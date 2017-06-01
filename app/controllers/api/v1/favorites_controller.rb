@@ -1,6 +1,7 @@
 class Api::V1::FavoritesController < ApplicationController
   def create
-    favorite = Favorite.create! favorite_params
+    favorite = current_user.favorites.build article_id: params[:article_id]
+    favorite.save
     render json: favorite
   end
 
@@ -9,10 +10,5 @@ class Api::V1::FavoritesController < ApplicationController
       article_id: params[:favorite][:user_id]).destroy
     success = {success: {message: "Delete successful", status: 200}}
     render json: success
-  end
-
-  private
-  def favorite_params
-    params.require(:favorite).permit(:user_id, :article_id)
   end
 end
