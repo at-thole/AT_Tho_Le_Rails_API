@@ -1,5 +1,6 @@
 class Api::V1::CategoriesController < BaseController
   before_action :get_category, only: [:update, :destroy]
+  before_action :loged_in?, only: [:create, :update, :destroy]
 
   def index
     categories = Category.all

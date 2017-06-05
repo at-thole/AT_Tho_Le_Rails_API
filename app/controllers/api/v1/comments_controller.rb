@@ -1,6 +1,7 @@
 module Api::V1
   class CommentsController < BaseController
     before_action :get_comment, only: [:update, :destroy]
+    before_action :loged_in?, only: [:create, :update, :destroy]
 
     def index
       article = Article.find_by id: params[:article_id]

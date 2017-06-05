@@ -1,5 +1,5 @@
 module Api::V1
-  class UsersController < ApplicationController
+  class UsersController < BaseController
     before_action :user_params, only: :create
 
     def create
@@ -15,10 +15,10 @@ module Api::V1
     end
 
     def show
-      user = User.friendly.find params[:id]
-      if user
+      begin
+        user = User.friendly.find params[:id]
         render json: user, serializer: Users::ShowUserSerializer
-      else
+      rescue
         error = {error: {message: "User not found", status: 404}}
         render json: error
       end

@@ -50,4 +50,9 @@ class User < ApplicationRecord
   def avatar_url
     avatar.url
   end
+
+  def follow user_id
+    follow = Relationship.find_by(follower_id: self.id, followed_id: user_id)
+    follow.present?
+  end
 end
