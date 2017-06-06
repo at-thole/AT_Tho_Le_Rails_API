@@ -38,4 +38,13 @@ class Article < ApplicationRecord
   validates :content, presence: true
 
   acts_as_paranoid column: :deleted_at
+  accepts_nested_attributes_for :categories_articles
+  accepts_nested_attributes_for :images
+
+  def add_tags tag_params
+    tags = tag_params.delete(" \/()!@{}$%^&*#[]|;:'").split(",")
+    tags.each{|tag| Tag.find_or_create_by name: tag}
+    tag_ids = Tag.select(:id).where name: tags
+    self.tags_articles.create! tag_ids.map{|tag_id| {tag_id: tag_id.id}}
+  end
 end

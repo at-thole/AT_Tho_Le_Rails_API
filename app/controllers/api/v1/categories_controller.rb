@@ -7,12 +7,6 @@ class Api::V1::CategoriesController < BaseController
     render json: {categories: categories}
   end
 
-  def show
-    category = Category.find_by id: params[:id]
-    articles = category.articles
-    render json: {articles: articles}
-  end
-
   def create
     category = Category.create! name: params[:category][:name]
     render json: {category: category}
@@ -32,5 +26,9 @@ class Api::V1::CategoriesController < BaseController
   private
   def get_category
     @category = Category.find_by id: params[:id]
+    unless @category
+      error = {error: {message: "Category not found", status: 404}}
+      render json: error
+    end
   end
 end

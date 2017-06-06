@@ -1,11 +1,14 @@
 module Api::V1
   class ArticlesController < BaseController
-    before_action :get_article, only: [:update, :destroy]
     before_action :loged_in?, only: [:create, :update, :destroy]
+    before_action :get_article, only: [:update, :destroy]
+    before_action :article_params, only: :update
 
     def index
+      users = User.where(id: current_user.following.select(:id))
       articles = Article.includes(:images, :user, :comments, :favorites,
-        :categories).offset(params[:article_length]).limit(params[:limit])
+        :categories).where(user_id: users).order(created_at: :desc)
+        .offset(params[:article_length]).limit(params[:limit])
       render json: articles, each_serializer: ::Articles::ArticlesSerializer
     end
 
@@ -21,17 +24,9 @@ module Api::V1
 
     def create
       ActiveRecord::Base.transaction do
-        article = current_user.articles.build title: params[:title],
-          description: params[:description], content: params[:content]
-        article.images.build picture: params[:picture]
-        article.categories_articles.build category_id: params[:category]
-        article.save
-        tags = params[:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
-        tags.each do |tag|
-          Tag.find_or_create_by name: tag
-        end
-        tag_ids = Tag.select(:id).where name: tags
-        article.tags_articles.create! tag_ids.map{|tag_id| {tag_id: tag_id.id}}
+        article = current_user.articles.build article_params
+        article.save!
+        article.add_tags(params[:tag])
         success = {success: {message: "Create complete", status: 200}}
         render json: success
       end
@@ -41,11 +36,12 @@ module Api::V1
     end
 
     def update
-      # @article.update_attributes title: params[:title], description: params[:description],
-      #   content: params[:content]
-      # @article.images.update_attributes picture: params[:picture]
-      tags = params[:tag].delete(" \/()!@{}$%^&*#[]|;:'").split(",")
-      binding.pry
+      ActiveRecord::Base.transaction do
+        @article.update article_params
+      end
+      rescue
+        error = {error: {message: "Internal server errors", status: 500}}
+        render json: error
     end
 
     def destroy
@@ -57,6 +53,15 @@ module Api::V1
     private
     def get_article
       @article = Article.find_by id: params[:id]
+      unless @article
+        error = {error: {message: "Article not found", status: 404}}
+        render json: error
+      end
+    end
+
+    def article_params
+      params.permit(:title, :description, :content,
+        {categories_articles_attributes: [:id, :category_id]}, {images_attributes: :picture})
     end
   end
 end

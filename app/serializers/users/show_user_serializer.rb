@@ -1,5 +1,5 @@
 class Users::ShowUserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :about_me, :avatar_url, :following, :followers, :is_followed
+  attributes :id, :username, :email, :phone, :address, :about_me, :avatar_url, :following, :followers, :is_followed
 
   def following
     object.following.size

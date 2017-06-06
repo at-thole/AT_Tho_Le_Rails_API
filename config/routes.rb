@@ -1,20 +1,23 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :sessions, only: [:create, :destroy]
+      resources :contacts, only: :create
+      resources :popular_articles, only: :index
       resources :articles do
         resources :comments
         resources :favorites
       end
-      get "popular_articles" => "articles/article_helpers#popular_articles"
       resources :users do
-        member do
-          get "articles_by_user" => "articles/article_helpers#articles_by_user"
-        end
         resources :relationships, only: [:create, :destroy]
+        resources :articles, only: :index, controller: 'users/articles'
       end
-      resources :sessions
-      resources :categories
-      resources :contacts
+      resources :categories do
+        resources :articles, only: :index, controller: 'categories/articles'
+      end
+      resources :tags do
+        resources :articles, only: :index, controller: 'tags/articles'
+      end
     end
   end
 end
