@@ -5,11 +5,16 @@ module Api::V1
     before_action :article_params, only: :update
 
     def index
-      users = User.where(id: current_user.following.select(:id))
-      articles = Article.includes(:images, :user, :comments, :favorites,
-        :categories).where(user_id: users).order(created_at: :desc)
-        .offset(params[:article_length]).limit(params[:limit])
-      render json: articles, each_serializer: ::Articles::ArticlesSerializer
+      # users = User.where(id: current_user.following.select(:id))
+      if params[:article_length].to_i == Article.all.size
+        message = {message: "No more articles", status: 204}
+        render json: message
+      else
+        articles = Article.includes(:images, :user, :comments, :favorites,
+          :categories).order(created_at: :desc)
+          .offset(params[:article_length]).limit(params[:limit])
+        render json: articles, each_serializer: ::Articles::ArticlesSerializer
+      end
     end
 
     def show
@@ -27,6 +32,7 @@ module Api::V1
         article = current_user.articles.build article_params
         article.save!
         article.add_tags(params[:tag])
+        article.add_table_search(params[:tag])
         success = {success: {message: "Create complete", status: 200}}
         render json: success
       end
@@ -37,7 +43,9 @@ module Api::V1
 
     def update
       ActiveRecord::Base.transaction do
-        @article.update article_params
+        @article.update! article_params
+        message = {message: "success"}
+        render json: message
       end
       rescue
         error = {error: {message: "Internal server errors", status: 500}}

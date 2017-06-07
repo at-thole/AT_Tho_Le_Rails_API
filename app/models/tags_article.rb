@@ -24,5 +24,7 @@ class TagsArticle < ApplicationRecord
   belongs_to :tag
   belongs_to :article
 
+  validates_uniqueness_of :tag_id, scope: :article_id
+
   acts_as_paranoid column: :deleted_at
 end

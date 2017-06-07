@@ -32,6 +32,7 @@ class Article < ApplicationRecord
   has_many :tags, through: :tags_articles, dependent: :destroy
   has_many :categories_articles, foreign_key: "article_id", dependent: :destroy
   has_many :categories, through: :categories_articles, dependent: :destroy
+  has_many :searches, dependent: :destroy
   belongs_to :user
 
   validates :title, presence: true, length: {in: 3..100}
@@ -47,4 +48,13 @@ class Article < ApplicationRecord
     tag_ids = Tag.select(:id).where name: tags
     self.tags_articles.create! tag_ids.map{|tag_id| {tag_id: tag_id.id}}
   end
+
+  def add_table_search tag_params
+    search = self.searches.build title: self.title, username: User.find_by(id: self.user_id).username, tag: tag_params
+    search.save
+  end
+
+  scope :get_popular, -> {
+    joins(:favorites).select("count(articles.id) as count_order, articles.*").group(:article_id).order("count_order desc")
+  }
 end

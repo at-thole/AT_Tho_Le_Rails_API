@@ -14,6 +14,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  Dir[Rails.root.join('spec/helpers/*.rb')].each { |f| require f }
+
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

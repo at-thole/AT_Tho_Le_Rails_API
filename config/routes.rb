@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :tags do
         resources :articles, only: :index, controller: 'tags/articles'
       end
+      resources :searches
     end
   end
 end

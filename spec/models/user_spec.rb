@@ -1,17 +1,27 @@
 require 'rails_helper'
 
-describe User do
-  context 'Create is not valid' do
-    before { @user = FactoryGirl.build(:user) }
-    subject { @user }
-    it "Create is not valid" do
-      expect(@user).to be_valid
-    end
+describe User, type: :model do
+  let!(:user) {FactoryGirl.create :user}
+  subject{user}
+
+  context "username is invalid" do
+    before {subject.username}
+    it {is_expected.to be_valid}
   end
-  context "Associations" do
-    it { should have_many(:comments) }
-    it { should have_many(:favorites) }
-    it { should have_many(:articles) }
+
+  context "username length is invalid" do
+    before {subject.username = "vasd"}
+    it {is_expected.to be_valid}
+  end
+
+  context "email is invalid" do
+    before{subject.email}
+    it {is_expected.to be_valid}
+  end
+
+  context "email is invalid format" do
+    before{subject.email}
+    it {is_expected.to be_valid}
   end
 end
 
